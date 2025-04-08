@@ -20,11 +20,13 @@ const ProductAll = () => {
         <div>
             <Container>
                 <Row>
-                    {productList.map((menu) => (
-                        <Col lg={3} key={menu.id}>
-                            <ProductCard item={menu} />
-                        </Col>
-                    ))}
+                    {productList.map((item) =>
+                        item ? (
+                            <Col lg={3} key={item?.id}>
+                                <ProductCard item={item} />
+                            </Col>
+                        ) : null
+                    )}
                 </Row>
             </Container>
             <ProductCard/>
