@@ -1,10 +1,13 @@
 import React from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
     return (
         <div>
-            <img src=""/>
-            <div>Cons</div>
+            <img src={item?.img}/>
+            <div>{item?.choice == true ? "Conscious choice" : ""}</div>
+            <div>{item?.title}</div>
+            <div>₩{item?.price}</div>
+            <div>{item?.new == true ? "신제품" : ""}</div>
         </div>
     );
 };
