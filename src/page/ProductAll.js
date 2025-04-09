@@ -21,15 +21,12 @@ const ProductAll = () => {
             <Container>
                 <Row>
                     {productList.map((item) =>
-                        item ? (
-                            <Col lg={3} key={item?.id}>
-                                <ProductCard item={item} />
-                            </Col>
-                        ) : null
+                        <Col lg={3} key={item?.id}>
+                            <ProductCard item={item} />
+                        </Col>
                     )}
                 </Row>
             </Container>
-            <ProductCard/>
         </div>
     );
 };

@@ -59,6 +59,39 @@
     justify-self: flex-end;
 }
 
+.card {
+    border: none !important;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.photo {
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+    border-radius: 8px; /* 선택 사항 */
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.choice{
+    font-size:11px;
+    color: #63786a;
+    font-weight: bold;
+    height: 20px;
+}
+
+.new-product {
+    font-size: 11px;
+    height: 20px;
+}
+
 /* 모바일 버전 */
 @media screen and (max-width: 63rem) {
     .pc {
@@ -78,5 +111,12 @@
     .burger-menu {
         margin-left: 20px;
         cursor: pointer;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 25%;
     }
 }
