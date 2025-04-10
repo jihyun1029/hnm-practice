@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import ProductCard from "../component/ProductCard";
 import {Col, Container, Row} from "react-bootstrap";
+import {useSearchParams} from 'react-router-dom';
 
 const ProductAll = () => {
     const [productList, setProductList] = useState([]);
+    const [query, setQuery] = useSearchParams();
     const getProducts = async () => {
-        let url = 'https://my-json-server.typicode.com/jihyun1029/hnm-practice/db'
+        let searchQuery = query.get('q') || "";
+        console.log("쿼리값은?",searchQuery);
+        let url = `https://my-json-server.typicode.com/jihyun1029/hnm-practice/products?q=${searchQuery}`;
         let response = await fetch(url);
         let data = await response.json();
         // console.log(data);
-        setProductList(data.products);
+        setProductList(data);
     }
 
     useEffect(() => {
         getProducts();
-    }, [])
+    }, [query]);
 
     return (
         <div>
