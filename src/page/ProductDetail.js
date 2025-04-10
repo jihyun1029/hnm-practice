@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Col, Container, Row} from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 
 const ProductDetail = () => {
     let {id} = useParams();
@@ -23,8 +24,18 @@ const ProductDetail = () => {
                     <img src={product?.img} />
                 </Col>
                 <Col>
-                    <div>{product?.title}</div>
-                    <div>{product?.price}</div>
+                    <div className="product-info">{product?.title}</div>
+                    <div className="product-info">₩{product?.price}</div>
+                    <div className="choice">{product?.choice ? "Conscious choice" : ""}</div>
+                    <div className="drop-down">
+                        <Form.Select aria-label="Default select example">
+                            <option>사이즈 선택</option>
+                            {product?.size?.map((s, index) => (
+                                <option key={index} value={s}>{s}</option>
+                            ))}
+                        </Form.Select>
+                    </div>
+                    <button type="button" className="add-button btn btn-dark">추가</button>
                 </Col>
             </Row>
         </Container>

@@ -105,6 +105,20 @@
     visibility:hidden
 }
 
+.product-info {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.drop-down {
+    margin-top: 20px;
+}
+
+.add-button {
+    width: 100%;
+    margin-top: 20px;
+}
+
 /* 모바일 버전 */
 @media screen and (max-width: 63rem) {
     .hide {
