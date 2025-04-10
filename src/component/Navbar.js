@@ -4,12 +4,17 @@ import {faUser} from '@fortawesome/free-regular-svg-icons'
 import {faBars, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({authenticate, setAuthenticate}) => {
     const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M Home', 'Sale', '지속가능성'];
     let [width, setWidth] = useState(0);
     const navigate = useNavigate()
     const goToLogin = () => {
         navigate('/login');
+    };
+
+    const logout = () => {
+        setAuthenticate(false);
+        navigate('/');
     };
 
     const search = (event) => {
@@ -40,10 +45,18 @@ const Navbar = () => {
                 <div className="burger-menu hide">
                     <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
                 </div>
-                <div className="login-button" onClick={goToLogin}>
-                    <FontAwesomeIcon icon={faUser} />
-                    <div>로그인</div>
-                </div>
+                {authenticate ? (
+                    <div className="login-button" onClick={logout}>
+                        <FontAwesomeIcon icon={faUser} />
+                        <div>로그아웃</div>
+                    </div>
+                ) : (
+                    <div className="login-button" onClick={goToLogin}>
+                        <FontAwesomeIcon icon={faUser} />
+                        <div>로그인</div>
+                    </div>
+                )}
+
             </div>
             <div className="nav-logo">
                 <Link to="/">
