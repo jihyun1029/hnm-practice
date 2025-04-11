@@ -79,7 +79,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
                 <div className="search-box">
                     <FontAwesomeIcon icon={faSearch} />
-                    <input type="text" onKeyPress={search}/>
+                    <input type="text" placeholder="제품검색" onKeyPress={search}/>
                 </div>
             </div>
         </div>
